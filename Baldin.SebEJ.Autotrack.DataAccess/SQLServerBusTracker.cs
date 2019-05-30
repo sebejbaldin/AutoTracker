@@ -2,7 +2,7 @@
 
 namespace Baldin.SebEJ.Autotrack.DataAccess
 {
-    public class SQLServerAccess
+    public class SQLServerBusTracker
     {
     }
 }
