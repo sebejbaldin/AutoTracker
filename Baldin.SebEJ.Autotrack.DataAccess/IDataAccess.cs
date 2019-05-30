@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Baldin.SebEJ.Autotrack.DataAccess
 {
@@ -10,6 +11,10 @@ namespace Baldin.SebEJ.Autotrack.DataAccess
         bool InsertGPSData(PositionMessage gpsPos);
 
         bool InsertDoor(DoorMessage doorMex);
+
+        bool InsertBulkGPSData(IEnumerable<PositionMessage> gpsPos);
+
+        bool InsertBulkDoor(IEnumerable<DoorMessage> doorMex);
 
         PositionMessage GetLastBusPosition(int busId);
 
@@ -27,5 +32,28 @@ namespace Baldin.SebEJ.Autotrack.DataAccess
 
         IEnumerable<DoorMessage> GetLastBusesStatus(IEnumerable<int> busIds);
 
+        Task<bool> InsertGPSDataAsync(PositionMessage gpsPos);
+
+        Task<bool> InsertDoorAsync(DoorMessage doorMex);
+
+        Task<bool> InsertBulkGPSDataAsync(IEnumerable<PositionMessage> gpsPos);
+
+        Task<bool> InsertBulkDoorAsync(IEnumerable<DoorMessage> doorMex);
+
+        Task<PositionMessage> GetLastBusPositionAsync(int busId);
+
+        Task<IEnumerable<PositionMessage>> GetLastBusesPositionAsync();
+
+        Task<IEnumerable<PositionMessage>> GetLastBusesPositionsAsync(params int[] busIds);
+
+        Task<IEnumerable<PositionMessage>> GetLastBusesPositionsAsync(IEnumerable<int> busIds);
+
+        Task<DoorMessage> GetLastBusStatusAsync(int busId);
+
+        Task<IEnumerable<DoorMessage>> GetLastBusesStatusAsync();
+
+        Task<IEnumerable<DoorMessage>> GetLastBusesStatusAsync(params int[] busIds);
+
+        Task<IEnumerable<DoorMessage>> GetLastBusesStatusAsync(IEnumerable<int> busIds);
     }
 }
