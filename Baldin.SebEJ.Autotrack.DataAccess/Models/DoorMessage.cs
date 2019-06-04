@@ -8,6 +8,6 @@ namespace Baldin.SebEJ.Autotrack.DataAccess.Models
     {
         public bool DoorOpen { get; set; }
 
-        public int Passengers { get; set; }
+        public int? Passengers { get; set; }
     }
 }
