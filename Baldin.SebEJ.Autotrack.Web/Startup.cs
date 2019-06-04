@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Baldin.SebEJ.Autotrack.DataAccess;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -31,6 +32,8 @@ namespace Baldin.SebEJ.Autotrack.Web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            //services.AddTransient<IDataAccess, PostgreBusTracker>();
+            services.AddSingleton<IDataAccess>(new InMemoryBusTracker());
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
